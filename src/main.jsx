@@ -4,11 +4,16 @@ import Home from "./Home.jsx";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 
 import "./index.css";
+import { store } from "./store.js";
+import { Provider } from "react-redux";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App />,
+    element: <Provider store={store}>
+      <App />
+    </Provider>
+    ,
     children: [
       {
         path: "/",
